@@ -16,7 +16,7 @@ def get_sound_file(event_name: str) -> str:
 
     First looks for the environment variable GBP_WEBHOOK_PLAYSOUND_<event_name>, where
     event_name is capitalized. If the environment variable exists and value is not empty
-    the value is returned.  Otherwize the "default" sound's path is returned.
+    the value is returned.  Otherwise the "default" sound's path is returned.
     """
     var = f"GBP_WEBHOOK_PLAYSOUND_{event_name.upper()}"
     environ = os.environ

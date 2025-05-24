@@ -2,7 +2,7 @@
 
 A [gbp-webhook](https://github.com/enku/gbp-webhook) plugin to play a sound on
 your desktop on events.  It currently reacts only to the `build_pulled` event
-(see [gbp-notificatons](https://github.com/enku/gbp-notifications)).
+(see [gbp-notifications](https://github.com/enku/gbp-notifications)).
 
 
 
@@ -27,7 +27,7 @@ $ pipx inject gbpcli gbp-webhook-playsound
 
 You should ensure that gbp-notifications is installed on the [Gentoo Build
 Publisher](https://github.com/enku/gentoo-build-publisher) server for which
-you want to subscribe and the webhook receiver is configured to recieve
+you want to subscribe and the webhook receiver is configured to receive
 `build_pulled` events:
 
 #### On the server
@@ -36,7 +36,7 @@ you want to subscribe and the webhook receiver is configured to recieve
 # /etc/gbp-notifications.toml
 
 [recipients]
-laptop { webhook = "https://laptop:5000/webhook|X-Pre-Shared-Key=foobar" }
+laptop = { webhook = "https://laptop:5000/webhook|X-Pre-Shared-Key=foobar" }
 
 [subscriptions]
 babette = { build_pulled = ["laptop"] }
