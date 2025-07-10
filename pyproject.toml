@@ -21,7 +21,7 @@ build-backend = "pdm.backend"
 skip-magic-trailing-comma = true
 
 [tool.coverage.run]
-source = ["gbp_webhook_playsound"]
+source = ["gbp_webhook_playsound", "tests"]
 omit = []
 
 [tool.isort]
