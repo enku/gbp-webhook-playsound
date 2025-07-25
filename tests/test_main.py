@@ -12,14 +12,10 @@ from . import fixtures as tf
 @given(tf.environ)
 class GetSoundFileTests(TestCase):
     def test_default(self, fixtures: Fixtures) -> None:
-        sound_file = get_sound_file("build_pulled")
-
-        self.assertEqual(DEFAULT_SOUND, sound_file)
+        self.assertEqual(DEFAULT_SOUND, get_sound_file("build_pulled"))
 
     def test_environment_variable(self, fixtures: Fixtures) -> None:
         environ: MutableMapping[str, str] = fixtures.environ
         environ["GBP_WEBHOOK_PLAYSOUND_BUILD_PULLED"] = "/foo/bar.mp3"
 
-        sound_file = get_sound_file("build_pulled")
-
-        self.assertEqual("/foo/bar.mp3", sound_file)
+        self.assertEqual("/foo/bar.mp3", get_sound_file("build_pulled"))
