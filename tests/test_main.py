@@ -6,10 +6,10 @@ from unittest_fixtures import Fixtures, given
 
 from gbp_webhook_playsound import DEFAULT_SOUND, get_sound_file
 
-from . import fixtures as tf
+from . import lib
 
 
-@given(tf.environ)
+@given(lib.environ)
 class GetSoundFileTests(TestCase):
     def test_default(self, fixtures: Fixtures) -> None:
         self.assertEqual(DEFAULT_SOUND, get_sound_file("build_pulled"))

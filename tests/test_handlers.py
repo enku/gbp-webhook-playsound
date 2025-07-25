@@ -7,10 +7,10 @@ from unittest_fixtures import Fixtures, given
 from gbp_webhook_playsound import DEFAULT_SOUND
 from gbp_webhook_playsound.handlers import build_pulled
 
-from . import fixtures as tf
+from . import lib
 
 
-@given(tf.environ, tf.popen)
+@given(lib.environ, lib.popen)
 class BuildPulledTests(TestCase):
     def test(self, fixtures: Fixtures) -> None:
         build_pulled(None)
