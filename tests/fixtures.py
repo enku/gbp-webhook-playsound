@@ -11,10 +11,8 @@ from unittest_fixtures import FixtureContext, Fixtures, fixture
 def environ(
     _fixtures: Fixtures, *, environ: Mapping[str, str] | None = None
 ) -> FixtureContext[MutableMapping[str, str]]:
-    environ = environ or {}
-
     with mock.patch.dict(os.environ, clear=True):
-        os.environ.update(environ)
+        os.environ.update(environ or {})
         yield os.environ
 
 
