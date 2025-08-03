@@ -22,7 +22,7 @@ skip-magic-trailing-comma = true
 
 [tool.coverage.run]
 source = ["gbp_webhook_playsound", "tests"]
-omit = []
+omit = ["tests/__main__.py"]
 
 [tool.isort]
 profile = "black"
