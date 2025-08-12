@@ -13,6 +13,10 @@ license = {text = "GPL3+"}
 [project.entry-points."gbp_webhook.handlers"]
 build_pulled = "gbp_webhook_playsound.handlers:build_pulled"
 
+[project.urls]
+homepage = "https://github.com/enku/gbp-webhook-playsound"
+repository = "https://github.com/enku/gbp-webhook-playsound"
+
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
