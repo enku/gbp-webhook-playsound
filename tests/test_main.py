@@ -1,5 +1,5 @@
 # pylint: disable=missing-docstring,unused-argument
-from collections.abc import MutableMapping
+import os
 from unittest import TestCase
 
 from unittest_fixtures import Fixtures, given
@@ -15,7 +15,6 @@ class GetSoundFileTests(TestCase):
         self.assertEqual(DEFAULT_SOUND, get_sound_file("build_pulled"))
 
     def test_environment_variable(self, fixtures: Fixtures) -> None:
-        environ: MutableMapping[str, str] = fixtures.environ
-        environ["GBP_WEBHOOK_PLAYSOUND_BUILD_PULLED"] = "/foo/bar.mp3"
+        os.environ["GBP_WEBHOOK_PLAYSOUND_BUILD_PULLED"] = "/foo/bar.mp3"
 
         self.assertEqual("/foo/bar.mp3", get_sound_file("build_pulled"))
