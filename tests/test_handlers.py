@@ -8,11 +8,10 @@ from unittest_fixtures import Fixtures, given, where
 from gbp_webhook_playsound import DEFAULT_SOUND
 from gbp_webhook_playsound.handlers import build_pulled
 
-from . import lib
 
-
-@given(testkit.environ, lib.popen)
+@given(testkit.environ, popen=testkit.patch)
 @where(environ__clear=True)
+@where(popen__target="gbp_webhook_playsound.handlers.sp.Popen")
 class BuildPulledTests(TestCase):
     def test(self, fixtures: Fixtures) -> None:
         build_pulled(None)
