@@ -52,4 +52,5 @@ dev = [
     "isort>=6.0.1",
     "coverage>=7.8.2",
     "unittest-fixtures>=1.0.0",
+    "gentoo-build-publisher[test] @ git+https://github.com/enku/gentoo-build-publisher.git@master",
 ]
