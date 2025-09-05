@@ -19,11 +19,8 @@ def get_sound_file(event_name: str) -> str:
     the value is returned.  Otherwise the "default" sound's path is returned.
     """
     var = f"GBP_WEBHOOK_PLAYSOUND_{event_name.upper()}"
-    environ = os.environ
 
-    if path := environ.get(var, ""):
-        return path
-    return DEFAULT_SOUND
+    return os.environ.get(var) or DEFAULT_SOUND
 
 
 def get_sound_player() -> list[str]:
