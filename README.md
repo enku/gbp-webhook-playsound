@@ -1,8 +1,8 @@
 # gbp-webhook-playsound
 
 A [gbp-webhook](https://github.com/enku/gbp-webhook) plugin to play a sound on
-your desktop on events.  It currently reacts only to the `build_pulled` event
-(see [gbp-notifications](https://github.com/enku/gbp-notifications)).
+your desktop on events.  It currently reacts only to the `postpull` event (see
+[gbp-notifications](https://github.com/enku/gbp-notifications)).
 
 
 
@@ -28,7 +28,7 @@ $ pipx inject gbpcli gbp-webhook-playsound
 You should ensure that gbp-notifications is installed on the [Gentoo Build
 Publisher](https://github.com/enku/gentoo-build-publisher) server for which
 you want to subscribe and the webhook receiver is configured to receive
-`build_pulled` events:
+`postpull` events:
 
 #### On the server
 
@@ -39,7 +39,7 @@ you want to subscribe and the webhook receiver is configured to receive
 laptop = { webhook = "https://laptop:5000/webhook|X-Pre-Shared-Key=foobar" }
 
 [subscriptions]
-babette = { build_pulled = ["laptop"] }
+babette = { postpull = ["laptop"] }
 ```
 
 As gbp-webhook-playsound is a plugin for gbp-webhook, it is picked up
@@ -58,7 +58,7 @@ variables.  If you are using the (preferred) systemd integration, then they
 will be defined in `~/.config/gbp-webhook.conf`.  The following environment
 variables are recognized:
 
-- `GBP_WEBHOOK_PLAYSOUND_BUILD_PULLED`: If provided, uses the sound file in
+- `GBP_WEBHOOK_PLAYSOUND_POSTPULL`: If provided, uses the sound file in
   this variable to play instead of the default sound.
 - `GBP_WEBHOOK_PLAYSOUND_PLAYER`: The name/path to use to play the sound file.
   The default is "pw-play".

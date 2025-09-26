@@ -12,7 +12,7 @@ del _p
 def get_sound_file(event_name: str) -> str:
     """Return the path of the given event's sound file
 
-    event_name such as "build_pulled"
+    event_name such as "postpull"
 
     First looks for the environment variable GBP_WEBHOOK_PLAYSOUND_<event_name>, where
     event_name is capitalized. If the environment variable exists and value is not empty

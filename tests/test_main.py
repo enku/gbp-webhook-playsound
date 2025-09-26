@@ -12,9 +12,9 @@ from gbp_webhook_playsound import DEFAULT_SOUND, get_sound_file
 @where(environ__clear=True)
 class GetSoundFileTests(TestCase):
     def test_default(self, fixtures: Fixtures) -> None:
-        self.assertEqual(DEFAULT_SOUND, get_sound_file("build_pulled"))
+        self.assertEqual(DEFAULT_SOUND, get_sound_file("postpull"))
 
     def test_environment_variable(self, fixtures: Fixtures) -> None:
-        os.environ["GBP_WEBHOOK_PLAYSOUND_BUILD_PULLED"] = "/foo/bar.mp3"
+        os.environ["GBP_WEBHOOK_PLAYSOUND_POSTPULL"] = "/foo/bar.mp3"
 
-        self.assertEqual("/foo/bar.mp3", get_sound_file("build_pulled"))
+        self.assertEqual("/foo/bar.mp3", get_sound_file("postpull"))

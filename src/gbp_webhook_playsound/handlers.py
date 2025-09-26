@@ -6,7 +6,7 @@ from typing import Any
 from gbp_webhook_playsound import get_sound_file, get_sound_player
 
 
-def build_pulled(_event: Any) -> None:
-    """build_pulled event handler"""
-    with sp.Popen([*get_sound_player(), get_sound_file("build_pulled")]):
+def postpull(_event: Any) -> None:
+    """postpull event handler"""
+    with sp.Popen([*get_sound_player(), get_sound_file("postpull")]):
         pass
