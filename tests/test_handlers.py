@@ -11,7 +11,7 @@ from gbp_webhook_playsound.handlers import postpull
 
 @given(testkit.environ, popen=testkit.patch)
 @where(environ__clear=True)
-@where(popen__target="gbp_webhook_playsound.handlers.sp.Popen")
+@where(popen__target="gbp_webhook_playsound.handlers.sp.call")
 class PostPullTests(TestCase):
     def test(self, fixtures: Fixtures) -> None:
         postpull(None)
