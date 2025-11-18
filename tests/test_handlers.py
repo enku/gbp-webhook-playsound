@@ -1,5 +1,4 @@
 # pylint: disable=missing-docstring
-import os
 from unittest import TestCase
 
 import gbp_testkit.fixtures as testkit
@@ -20,7 +19,8 @@ class PostPullTests(TestCase):
         popen.assert_called_once_with(["pw-play", DEFAULT_SOUND])
 
     def test_custom_player(self, fixtures: Fixtures) -> None:
-        os.environ["GBP_WEBHOOK_PLAYSOUND_PLAYER"] = "mpg123 -q"
+        environ = fixtures.environ
+        environ["GBP_WEBHOOK_PLAYSOUND_PLAYER"] = "mpg123 -q"
 
         postpull(None)
 
