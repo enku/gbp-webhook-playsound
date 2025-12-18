@@ -26,3 +26,12 @@ class PostPullTests(TestCase):
 
         popen = fixtures.popen
         popen.assert_called_once_with(["mpg123", "-q", DEFAULT_SOUND])
+
+    def test_custom_sound(self, fixtures: Fixtures) -> None:
+        environ = fixtures.environ
+        environ["GBP_WEBHOOK_PLAYSOUND_POSTPULL"] = "/foo/bar.mp3"
+
+        postpull(None)
+
+        popen = fixtures.popen
+        popen.assert_called_once_with(["pw-play", "/foo/bar.mp3"])
