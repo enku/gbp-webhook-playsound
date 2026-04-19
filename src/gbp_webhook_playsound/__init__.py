@@ -3,6 +3,8 @@
 import importlib.resources
 import os
 
+DEFAULT_SOUND: str
+
 with importlib.resources.path("gbp_webhook_playsound", "level-up-191997.mp3") as _p:
     DEFAULT_SOUND = str(_p)
 
