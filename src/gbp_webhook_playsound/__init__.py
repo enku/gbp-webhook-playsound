@@ -1,7 +1,7 @@
 """gbp-webhook-playsound"""
 
 import importlib.resources
-import os
+from os import environ
 
 DEFAULT_SOUND: str
 
@@ -20,11 +20,9 @@ def get_sound_file(event_name: str) -> str:
     event_name is capitalized. If the environment variable exists and value is not empty
     the value is returned.  Otherwise the "default" sound's path is returned.
     """
-    var = f"GBP_WEBHOOK_PLAYSOUND_{event_name.upper()}"
-
-    return os.environ.get(var) or DEFAULT_SOUND
+    return environ.get(f"GBP_WEBHOOK_PLAYSOUND_{event_name.upper()}") or DEFAULT_SOUND
 
 
 def get_sound_player() -> list[str]:
     """Return the sound player executable"""
-    return os.environ.get("GBP_WEBHOOK_PLAYSOUND_PLAYER", "pw-play").split()
+    return environ.get("GBP_WEBHOOK_PLAYSOUND_PLAYER", "pw-play").split()
